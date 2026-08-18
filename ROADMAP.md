@@ -91,12 +91,22 @@ verifikasi build/lint + link checker + Lighthouse spot-check sebelum lanjut.
 - [x] `Header` jadi server component (tanpa JS hydration; mobile menu
   native `<details>`) → hilangkan chunk `framework`/`main` (~60 kB gzip)
   dari semua halaman statis
+- [x] `scripts/cleanup-chunks.mjs` post-build: hapus chunk orphan dari
+  `out/_next/static/chunks` (framework, main, pages/_, route, sisa build)
+- [x] Upgrade runtime JS: Next.js 15→16.3.1 (Turbopack), React 19.2.8,
+  `next-mdx-remote` 6 di semua 15 situs
 - [ ] Install Pages CMS GitHub App ke seluruh repo (menunggu aksi user)
 
 > Optimasi tersisa (batas platform/framework): React runtime
 > (react+react-dom ~100 kB gzip) wajib dimuat App Router di semua halaman;
 > `cache-control: max-age=600` di-set GitHub Pages (tidak bisa diubah dari
 > repo); gzip sudah aktif untuk semua aset.
+
+### Hasil audit setelah upgrade Next 16 (Lighthouse live)
+- Desktop semua situs: PERF 92-98, A11Y 100, BP 100, SEO 100
+- Mobile (throttled 4x): PERF 76-80 (naik dari 62-69), LCP 2.3-2.6 s,
+  TBT ~1.0 s, CLS 0 — Turbopack memecah JS jadi banyak chunk async
+  kecil sehingga blocking time turun signifikan
 
 ## Kriteria Selesai per Fase
 - `npm run build` bersih (semua repo)
