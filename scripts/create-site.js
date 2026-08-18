@@ -52,23 +52,25 @@ const network = JSON.parse(fs.readFileSync(networkPath, 'utf-8'));
 
 const allSites = [...(network.sites || []), ...(network.topics || [])];
 const existing = allSites.find((s) => s.repo === repo);
-if (existing) {
-  console.error(`repo "${repo}" sudah ada di network.json (status ${existing.status})`);
+if (existing && existing.status === 'active') {
+  console.error(`repo "${repo}" sudah active — tidak boleh di-scaffold ulang`);
   process.exit(2);
 }
 
-const category = flag('--category') || repo.replace(/^wims-/, '').split('-')[0];
-const palette = network.brandPalettes?.[category] || { accent: '#6366f1', accent2: '#8b5cf6' };
-const siteName = name || `Wim ${capitalize(category)}`;
+const category = flag('--category') || (existing?.category) || repo.replace(/^wims-/, '').split('-')[0];
+const palette = network.brandPalettes?.[category] || existing?.brand || { accent: '#6366f1', accent2: '#8b5cf6' };
+const siteName = name || existing?.name || `Wim ${capitalize(category)}`;
 const hubRepo = network.hub;
+const parentEffective = parent || existing?.parent || hubRepo;
 
-// related default: kategori sibling lain (max 2) + parent
+// related default: pakai nilai network.json bila ada, selain itu sibling aktif
 const relatedDefault = () => {
+  if (existing?.related?.length) return existing.related;
   const siblings = allSites.filter(
-    (s) => s.parent === parent && s.repo !== repo && s.status === 'active'
+    (s) => s.parent === parentEffective && s.repo !== repo && s.status === 'active'
   );
   const pick = siblings.slice(0, 2).map((s) => s.repo);
-  if (parent && parent !== hubRepo) pick.push(parent);
+  if (parentEffective && parentEffective !== hubRepo) pick.push(parentEffective);
   return pick;
 };
 
@@ -82,9 +84,9 @@ const siteConfig = {
   ogTitle: `Judul OG<br>untuk ${siteName}`,
   ogSubtitle: 'Subtitle OG singkat dan informatif.',
   category,
-  categoryLabel: capitalize(category),
-  parent: parent || hubRepo,
-  children: [],
+  categoryLabel: existing?.categoryLabel || capitalize(category),
+  parent: parentEffective,
+  children: existing?.children || [],
   related: relatedDefault(),
   brand: palette,
   giscus: { repoId: 'REPO_ID', categoryId: 'CATEGORY_ID' },
@@ -112,20 +114,39 @@ console.log('2) Clone template...');
 execSync(`git clone --depth 1 ${templateRef} ${tmp}`, { stdio: 'inherit' });
 
 console.log('3) Salin tema, hapus identitas template...');
-for (const rel of ['content', 'site.config.json', 'site.config.json.example', '.git']) {
+for (const rel of ['site.config.json', 'site.config.json.example', '.git']) {
   fs.rmSync(path.join(tmp, rel), { recursive: true, force: true });
 }
+fs.rmSync(path.join(tmp, 'content'), { recursive: true, force: true });
+fs.mkdirSync(path.join(tmp, 'content'), { recursive: true });
 
-console.log('4) Tulis site.config.json...');
+console.log('4) Tulis site.config.json + content/welcome.md...');
 fs.writeFileSync(path.join(tmp, 'site.config.json'), JSON.stringify(siteConfig, null, 2) + '\n');
 
-console.log('5) Commit + push + pasang remote site...');
-execSync('git add -A && git commit -m "feat: scaffold ' + repo + ' from wims-template"', {
+const welcome = `---
+title: "Selamat Datang di ${siteName}"
+date: "2026-08-18"
+category: "Perkenalan"
+excerpt: "${siteName} — ${siteConfig.description}"
+tags: ["perkenalan"]
+---
+
+Selamat datang di **${siteName}**, bagian dari jaringan **Wim**.
+
+Situs ini sedang dalam pengembangan. Isi file di folder \`content/\` untuk menampilkan artikel.
+
+- Topik utama: *${siteConfig.categoryLabel}*
+- Jaringan: *${siteConfig.parent}*
+`;
+fs.writeFileSync(path.join(tmp, 'content', 'welcome.md'), welcome);
+
+console.log('5) Init repo baru + commit + push...');
+execSync('git init -b main && git add -A && git commit -m "feat: scaffold ' + repo + ' from wims-template"', {
   cwd: tmp,
   stdio: 'inherit',
 });
-execSync(`git remote add site https://github.com/aixwim/${repo}.git`, { cwd: tmp, stdio: 'inherit' });
-execSync('git push -u site HEAD:main', { cwd: tmp, stdio: 'inherit' });
+execSync(`git remote add origin https://github.com/aixwim/${repo}.git`, { cwd: tmp, stdio: 'inherit' });
+execSync('git push -u origin HEAD:main', { cwd: tmp, stdio: 'inherit' });
 
 console.log(`\n✓ ${repo} dibuat. Langkah berikutnya:`);
 console.log(`  - Registrasi di registry/network.json (wims-docs), status="active"`);
