@@ -37,8 +37,8 @@ verifikasi build/lint + link checker + Lighthouse spot-check sebelum lanjut.
 ## Fase 3 — Hub Menjadi Portal ✅
 - [x] Ubah `aixwim/wims` menjadi portal: grid 10 kartu kategori
 - [x] Pindahkan ~35 artikel tech ke `wims-teknologi`
-- [ ] Update metadata/sitemap/robots/JSON-LD hub
-- [ ] Verifikasi: link checker 0 orphan, Lighthouse hub
+- [x] Update metadata/sitemap/robots/JSON-LD hub
+- [x] Verifikasi: link checker 0 orphan, Lighthouse hub
 
 > 34 artikel (Astro/Termux/SEO/Next.js) dipindah ke `wims-teknologi`
 > (commit `1a259f8`); hub kini portal dengan `welcome.md` + 10 kartu kategori.
@@ -50,21 +50,25 @@ verifikasi build/lint + link checker + Lighthouse spot-check sebelum lanjut.
 - [x] Konfigurasi niche: palette indigo→cyan, favicon/og.png
 - [x] Aktifkan Pages via API, deploy, verifikasi
 
-## Fase 5 — 9 Kategori Lain
+## Fase 5 — 9 Kategori Lain ✅
 - [x] Scaffold: bisnis, selebritas, kultur, entertainment, game, living,
   berita, style, olahraga (semua repo + Pages live)
-- [ ] Isi 3-5 artikel starter per situs (konten unik)
-- [ ] Konfigurasi niche masing-masing (palette + identitas)
-- [ ] Aktifkan Pages via API, deploy semua, verifikasi link checker
+- [x] Isi 3-5 artikel starter per situs (konten unik)
+- [x] Konfigurasi niche masing-masing (palette + identitas)
+- [x] Aktifkan Pages via API, deploy semua, verifikasi link checker
 
-> Scaffold + Pages sudah live untuk 14 repo. Tersisa: artikel starter,
-> konfigurasi niche lanjutan (tagline/deskripsi/og per situs), verifikasi.
+> 4 artikel starter unik per situs (36 artikel total), identitas niche
+> (tagline/deskripsi/OG) per situs. Lighthouse hub: PERF 99, A11Y 100,
+> BP 100, SEO 100.
 
-## Fase 6 — Topik Niche Contoh ✅ (scaffold)
+## Fase 6 — Topik Niche Contoh ✅
 - [x] `wims-teknologi-ai` (contoh topik di bawah kategori teknologi)
 - [x] `wims-game-mobile` (contoh topik game)
 - [x] Update parent/children di `registry/network.json`
-- [ ] Verifikasi matriks interlinking
+- [x] Verifikasi matriks interlinking
+
+> Keempat topik (teknologi-ai, teknologi-pemrograman, game-mobile,
+> olahraga-sepakbola) sudah live. Menunggu konten starter seperti Fase 5.
 
 ## Fase 7 — Pages CMS & Polishing
 - [ ] Install Pages CMS GitHub App ke seluruh repo
