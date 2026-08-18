@@ -69,6 +69,22 @@ Ringkasan konfigurasi:
 Akses CMS: buka aplikasi Pages CMS (https://pagescms.org), pilih repo yang
 diinginkan. GitHub App Pages CMS harus terpasang di seluruh repo jaringan.
 
+## Komentar (giscus)
+
+Komentar di bawah artikel memakai [giscus](https://giscus.app) yang berbasis
+GitHub Discussions.
+
+- Setiap repo perlu **Discussions aktif** (Settings → General → Discussions).
+- `site.config.json` memuat `giscus.repoId` + `giscus.categoryId` (kategori
+  `General`). Nilai didapat via GraphQL:
+  ```bash
+  gh api graphql -f query='{ repository(owner:"aixwim", name:"<repo>") {
+    id discussionCategories(first: 10) { nodes { id name } } } }'
+  ```
+- GitHub App **giscus** harus di-install dan diberi akses ke repo yang
+  memakai komentar.
+- `data-mapping: pathname` → komentar menempel per URL artikel.
+
 ## Sitemap & Robots per Situs
 
 - `sitemap.ts` menghasilkan `sitemap.xml` hanya untuk URL situs itu sendiri:
