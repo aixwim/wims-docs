@@ -12,12 +12,15 @@ aixwim.github.io/wims                     ← HUB / Portal utama
    ├── /wims-kultur            (Kultur)
    ├── /wims-entertainment     (Entertainment)
    ├── /wims-game              (Game)
+   │     └── /wims-game-mobile   (Topik: Game Mobile)
    ├── /wims-living            (Living)
    ├── /wims-berita            (Berita)
    ├── /wims-style             (Style)
    ├── /wims-teknologi         (Teknologi)
-   │     └── /wims-teknologi-ai  (Topik: AI)
+   │     ├── /wims-teknologi-ai  (Topik: AI)
+   │     └── /wims-teknologi-pemrograman (Topik: Pemrograman)
    └── /wims-olahraga          (Olahraga)
+         └── /wims-olahraga-sepakbola (Topik: Sepak Bola)
 ```
 
 ## Status Situs
@@ -25,18 +28,24 @@ aixwim.github.io/wims                     ← HUB / Portal utama
 | Repo | Situs | Kategori | Status |
 |---|---|---|---|
 | `aixwim/wims` | `/wims` | Hub | Aktif |
-| `aixwim/wims-teknologi` | `/wims-teknologi` | Teknologi | Rencana |
-| `aixwim/wims-game` | `/wims-game` | Game | Rencana |
-| `aixwim/wims-bisnis` | `/wims-bisnis` | Bisnis | Rencana |
-| `aixwim/wims-selebritas` | `/wims-selebritas` | Selebritas | Rencana |
-| `aixwim/wims-kultur` | `/wims-kultur` | Kultur | Rencana |
-| `aixwim/wims-entertainment` | `/wims-entertainment` | Entertainment | Rencana |
-| `aixwim/wims-living` | `/wims-living` | Living | Rencana |
-| `aixwim/wims-berita` | `/wims-berita` | Berita | Rencana |
-| `aixwim/wims-style` | `/wims-style` | Style | Rencana |
-| `aixwim/wims-olahraga` | `/wims-olahraga` | Olahraga | Rencana |
+| `aixwim/wims-teknologi` | `/wims-teknologi` | Teknologi | Aktif |
+| `aixwim/wims-game` | `/wims-game` | Game | Aktif |
+| `aixwim/wims-bisnis` | `/wims-bisnis` | Bisnis | Aktif |
+| `aixwim/wims-selebritas` | `/wims-selebritas` | Selebritas | Aktif |
+| `aixwim/wims-kultur` | `/wims-kultur` | Kultur | Aktif |
+| `aixwim/wims-entertainment` | `/wims-entertainment` | Entertainment | Aktif |
+| `aixwim/wims-living` | `/wims-living` | Living | Aktif |
+| `aixwim/wims-berita` | `/wims-berita` | Berita | Aktif |
+| `aixwim/wims-style` | `/wims-style` | Style | Aktif |
+| `aixwim/wims-olahraga` | `/wims-olahraga` | Olahraga | Aktif |
+| `aixwim/wims-teknologi-ai` | `/wims-teknologi-ai` | Topik: AI | Aktif |
+| `aixwim/wims-teknologi-pemrograman` | `/wims-teknologi-pemrograman` | Topik: Pemrograman | Aktif |
+| `aixwim/wims-game-mobile` | `/wims-game-mobile` | Topik: Game Mobile | Aktif |
+| `aixwim/wims-olahraga-sepakbola` | `/wims-olahraga-sepakbola` | Topik: Sepak Bola | Aktif |
 
-> Status diperbarui saat implementasi berjalan. Lihat [`registry/network.json`](registry/network.json)
+> Semua 15 situs live di GitHub Pages. Konten: hub = portal (welcome);
+> wims-teknologi = 34 artikel tech; 9 kategori = 4 artikel starter;
+> 4 topik = 3 artikel starter. Lihat [`registry/network.json`](registry/network.json)
 > untuk daftar kanonik yang dipakai kode.
 
 ## Roadmap
