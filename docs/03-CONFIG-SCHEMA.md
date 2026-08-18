@@ -17,11 +17,18 @@ tautan jaringan dibaca dari sini oleh template.
   // Bagian teks logo yang di-gradient (singkat, 1 kata).
   "logoText": "tekno",
 
+  // Awalan teks logo sebelum logoText (opsional, default "").
+  "logoPrefix": "wim",
+
   // Slogan singkat.
   "tagline": "Teknologi, AI & Web",
 
   // Deskripsi meta (untuk SEO & Open Graph).
   "description": "Artikel teknologi, AI, dan web development.",
+
+  // Judul & subtitle OG image (opsional; dipakai generate-assets.mjs).
+  "ogTitle": "Teknologi<br>dan <span class=\"grad\">AI</span>",
+  "ogSubtitle": "Artikel teknologi, AI, dan web development — ditulis untuk dipahami semua orang.",
 
   // Kategori (untuk grouping & tema). Hub memakai "hub".
   "category": "teknologi",
@@ -48,6 +55,12 @@ tautan jaringan dibaca dari sini oleh template.
   "home": {
     "featured": 4,
     "recent": 6
+  },
+
+  // Opsional: repo-id & category-id giscus untuk kolom komentar.
+  "giscus": {
+    "repoId": "R_kgDOT5wE7A",
+    "categoryId": "DIC_kwDOT5wE7M4DDe8B"
   }
 }
 ```
@@ -59,6 +72,7 @@ tautan jaringan dibaca dari sini oleh template.
   "repo": "wims",
   "siteName": "Wim",
   "logoText": "wim",
+  "logoPrefix": "aix",
   "tagline": "Portal Jaringan Wim",
   "description": "Portal jaringan situs Wim: teknologi, game, bisnis, dan banyak lagi.",
   "category": "hub",
@@ -70,7 +84,8 @@ tautan jaringan dibaca dari sini oleh template.
     "wims-teknologi", "wims-olahraga"
   ],
   "related": [],
-  "brand": { "accent": "#6366f1", "accent2": "#8b5cf6" }
+  "brand": { "accent": "#6366f1", "accent2": "#8b5cf6" },
+  "giscus": { "repoId": "R_kgDOT5wE7A", "categoryId": "DIC_kwDOT5wE7M4DDe8B" }
 }
 ```
 

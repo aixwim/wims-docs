@@ -9,15 +9,15 @@ verifikasi build/lint + link checker + Lighthouse spot-check sebelum lanjut.
 - [x] Buat `registry/network.json` kanonik
 
 ## Fase 1 — Template Config-Driven (Sumber Tema)
-- [ ] Refactor template: semua identitas dipindah ke `site.config.json`
-  (repo, siteName, logoText, tagline, description, category, parent, children,
-  related, brand{accent, accent2})
-- [ ] `basePath` & semua URL otomatis dari config (bukan hardcoded `/wims`)
-- [ ] Ganti warna hardcoded `indigo/violet/cyan` → CSS vars `--brand-*`
-- [ ] `og.png` & favicon digenerate dari config brand
-- [ ] Footer memakai `registry/network.json` untuk blok "Jaringan"
+- [x] Refactor template: semua identitas dipindah ke `site.config.json`
+  (repo, siteName, logoText, logoPrefix, tagline, description, category, parent,
+  children, related, brand{accent, accent2}, giscus)
+- [x] `basePath` & semua URL otomatis dari config (bukan hardcoded `/wims`)
+- [x] Ganti warna hardcoded `indigo/violet/cyan` → CSS vars `--brand-*`
+- [x] `og.png` & favicon digenerate dari config brand (`npm run assets`)
+- [x] Footer memakai `registry/network.json` untuk blok "Jaringan"
 - [ ] Pisahkan ke repo `aixwim/wims-template`
-- [ ] Verifikasi: build bersih, no hardcoded identity tersisa
+- [x] Verifikasi: build bersih, no hardcoded identity tersisa
 
 ## Fase 2 — Tooling
 - [ ] `scripts/create-site.js` — scaffold repo situs dari template + config
