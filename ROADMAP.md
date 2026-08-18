@@ -16,8 +16,10 @@ verifikasi build/lint + link checker + Lighthouse spot-check sebelum lanjut.
 - [x] Ganti warna hardcoded `indigo/violet/cyan` → CSS vars `--brand-*`
 - [x] `og.png` & favicon digenerate dari config brand (`npm run assets`)
 - [x] Footer memakai `registry/network.json` untuk blok "Jaringan"
-- [ ] Pisahkan ke repo `aixwim/wims-template`
+- [x] Pisahkan ke repo `aixwim/wims-template`
 - [x] Verifikasi: build bersih, no hardcoded identity tersisa
+- [x] Fix regresi bundle: tanpa `browserslist`, First Load JS 103 kB
+  (lihat [09-TROUBLESHOOTING](docs/09-TROUBLESHOOTING.md#browserslist-bundle-devtools))
 
 ## Fase 2 — Tooling
 - [ ] `scripts/create-site.js` — scaffold repo situs dari template + config

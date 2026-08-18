@@ -11,6 +11,18 @@ Format entri:
 
 ---
 
+## [2026-08-18] Semua situs — Bundle membengkak (~840 KB) karena `next-devtools`
+- **Gejala:** First Load JS shared melonjak 103 kB → 339 kB; chunk `ed9f2dc4-*.js`
+  ~820 KB (raw) berisi `next-devtools`/`dev-overlay`/`dev-tools-indicator` ikut
+  dibundle ke produksi dan dimuat di tiap halaman.
+- **Akar masalah:** Field `browserslist` di `package.json` memicu bug webpack
+  Next.js [vercel/next.js#89844](https://github.com/vercel/next.js/issues/89844):
+  modul dev-only ikut di-bundle ke produksi. Hash chunk polyfill identik dengan
+  dan tanpa browserslist → field ini tidak memberi manfaat, hanya memicu bug.
+- **Solusi:** Hapus field `browserslist` dari `package.json` (fix `8d3d7e6` di wims,
+  `bdc6f27` di template). First Load JS kembali 103 kB.
+- **Status:** ✅ Selesai
+
 ## [2026-08-18] Semua situs — Tag menampilkan prefiks `#`
 - **Gejala:** Tag tampil sebagai `#seo`, `#teknologi` di semua halaman.
 - **Akar masalah:** Komponen merender `#{tag}` sebagai teks (bukan hashtag yang diinginkan).
