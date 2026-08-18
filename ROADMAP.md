@@ -79,6 +79,25 @@ verifikasi build/lint + link checker + Lighthouse spot-check sebelum lanjut.
 - [ ] `.pages.yml` sesuai niche tiap situs
 - [ ] Update dokumentasi & status tabel di README
 
+## Fase 8 — Landing Page Hub & Optimasi Performa ✅
+- [x] Landing page profesional di `aixwim/wims`: hero, stats (15 situs /
+  83+ artikel / 10 kategori / 4 topik), grid kategori ber-articleCount,
+  topik spesifik, fitur, CTA
+- [x] `articleCount` per situs ditambahkan di `registry/network.json`
+- [x] `src/app/page.tsx` & `src/lib/network.ts` masuk `NEVER_SYNC`
+  (landing hub khusus wims; situs lain tetap template generik)
+- [x] Full audit Lighthouse seluruh 15 situs: desktop avg PERF 99-100,
+  A11Y/BP/SEO 100; mobile 62-69 (TBT dari React core App Router)
+- [x] `Header` jadi server component (tanpa JS hydration; mobile menu
+  native `<details>`) → hilangkan chunk `framework`/`main` (~60 kB gzip)
+  dari semua halaman statis
+- [ ] Install Pages CMS GitHub App ke seluruh repo (menunggu aksi user)
+
+> Optimasi tersisa (batas platform/framework): React runtime
+> (react+react-dom ~100 kB gzip) wajib dimuat App Router di semua halaman;
+> `cache-control: max-age=600` di-set GitHub Pages (tidak bisa diubah dari
+> repo); gzip sudah aktif untuk semua aset.
+
 ## Kriteria Selesai per Fase
 - `npm run build` bersih (semua repo)
 - `npm run lint` bersih
