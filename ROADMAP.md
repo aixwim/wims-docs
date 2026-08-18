@@ -71,9 +71,12 @@ verifikasi build/lint + link checker + Lighthouse spot-check sebelum lanjut.
 > olahraga-sepakbola) sudah live. Menunggu konten starter seperti Fase 5.
 
 ## Fase 7 — Pages CMS & Polishing
+- [x] Giscus: Discussions aktif + repoId/categoryId terisi di 14 repo
+  (hub `wims` sudah live; app giscus di-install di akun)
+- [x] Lighthouse semua situs (a11y/BP/SEO 100, perf ≥ 99 desktop)
+- [x] Verifikasi `sync.yml` end-to-end (0 perubahan → tanpa PR)
 - [ ] Install Pages CMS GitHub App ke seluruh repo
 - [ ] `.pages.yml` sesuai niche tiap situs
-- [ ] Lighthouse semua situs (a11y/BP/SEO ≥ 99, perf optimal)
 - [ ] Update dokumentasi & status tabel di README
 
 ## Kriteria Selesai per Fase
