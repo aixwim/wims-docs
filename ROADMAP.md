@@ -22,11 +22,14 @@ verifikasi build/lint + link checker + Lighthouse spot-check sebelum lanjut.
   (lihat [09-TROUBLESHOOTING](docs/09-TROUBLESHOOTING.md#browserslist-bundle-devtools))
 
 ## Fase 2 — Tooling
-- [ ] `scripts/create-site.js` — scaffold repo situs dari template + config
-- [ ] `scripts/sync-theme.sh` — hash-compare + copy tema dari template
-- [ ] `scripts/check-links.js` — validasi semua cross-link (0 orphan)
-- [ ] Workflow `sync.yml` di tiap situs (cron + manual)
-- [ ] Workflow `deploy.yml` reusable (GH Pages)
+- [x] `scripts/sync-theme.mjs` — hash-compare + copy tema dari template
+- [x] `scripts/check-links.js` — validasi semua cross-link (0 orphan)
+- [x] Workflow `sync.yml` di tiap situs (cron + manual)
+- [x] Workflow `deploy.yml` reusable (GH Pages)
+- [x] `scripts/create-site.js` — scaffold repo situs dari template + config
+
+> Catatan: `create-site.js` hidup di `wims-docs/scripts/` dan dipakai saat
+> scaffold 10 kategori (Fase 3).
 
 ## Fase 3 — Hub Menjadi Portal
 - [ ] Ubah `aixwim/wims` menjadi portal: grid 10 kartu kategori
