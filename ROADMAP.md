@@ -29,31 +29,41 @@ verifikasi build/lint + link checker + Lighthouse spot-check sebelum lanjut.
 - [x] `scripts/create-site.js` — scaffold repo situs dari template + config
 
 > Catatan: `create-site.js` hidup di `wims-docs/scripts/` dan dipakai saat
-> scaffold 10 kategori (Fase 3).
+> scaffold 10 kategori (Fase 3-6). Fix 2026-08-18: scaffold tanpa konten
+> memicu error `ENOENT content` (template hapus konten tapi `getAllPosts()`
+> butuh folder); kini selalu menulis `content/welcome.md` placeholder + izin
+> scaffold repo berstatus `planned` (pakai data network.json).
 
-## Fase 3 — Hub Menjadi Portal
-- [ ] Ubah `aixwim/wims` menjadi portal: grid 10 kartu kategori
-- [ ] Pindahkan ~35 artikel tech ke `wims-teknologi`
+## Fase 3 — Hub Menjadi Portal ✅
+- [x] Ubah `aixwim/wims` menjadi portal: grid 10 kartu kategori
+- [x] Pindahkan ~35 artikel tech ke `wims-teknologi`
 - [ ] Update metadata/sitemap/robots/JSON-LD hub
 - [ ] Verifikasi: link checker 0 orphan, Lighthouse hub
 
-## Fase 4 — Situs Teknologi
-- [ ] Scaffold `aixwim/wims-teknologi` dari template
-- [ ] Impor 35 artikel existing (konten unik)
-- [ ] Konfigurasi niche: palette indigo→cyan, favicon/og.png
-- [ ] Aktifkan Pages via API, deploy, verifikasi
+> 34 artikel (Astro/Termux/SEO/Next.js) dipindah ke `wims-teknologi`
+> (commit `1a259f8`); hub kini portal dengan `welcome.md` + 10 kartu kategori.
+> Sisa: metadata/sitemap/robots/JSON-LD hub + Lighthouse.
+
+## Fase 4 — Situs Teknologi ✅
+- [x] Scaffold `aixwim/wims-teknologi` dari template
+- [x] Impor 35 artikel existing (konten unik)
+- [x] Konfigurasi niche: palette indigo→cyan, favicon/og.png
+- [x] Aktifkan Pages via API, deploy, verifikasi
 
 ## Fase 5 — 9 Kategori Lain
-- [ ] Scaffold: bisnis, selebritas, kultur, entertainment, game, living,
-  berita, style, olahraga
+- [x] Scaffold: bisnis, selebritas, kultur, entertainment, game, living,
+  berita, style, olahraga (semua repo + Pages live)
 - [ ] Isi 3-5 artikel starter per situs (konten unik)
 - [ ] Konfigurasi niche masing-masing (palette + identitas)
 - [ ] Aktifkan Pages via API, deploy semua, verifikasi link checker
 
-## Fase 6 — Topik Niche Contoh
-- [ ] `wims-teknologi-ai` (contoh topik di bawah kategori teknologi)
-- [ ] `wims-game-mobile` (contoh topik game)
-- [ ] Update parent/children di `registry/network.json`
+> Scaffold + Pages sudah live untuk 14 repo. Tersisa: artikel starter,
+> konfigurasi niche lanjutan (tagline/deskripsi/og per situs), verifikasi.
+
+## Fase 6 — Topik Niche Contoh ✅ (scaffold)
+- [x] `wims-teknologi-ai` (contoh topik di bawah kategori teknologi)
+- [x] `wims-game-mobile` (contoh topik game)
+- [x] Update parent/children di `registry/network.json`
 - [ ] Verifikasi matriks interlinking
 
 ## Fase 7 — Pages CMS & Polishing
