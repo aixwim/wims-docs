@@ -61,7 +61,12 @@ tautan jaringan dibaca dari sini oleh template.
   "giscus": {
     "repoId": "R_kgDOT5wE7A",
     "categoryId": "DIC_kwDOT5wE7M4DDe8B"
-  }
+  },
+
+  // Opsional: token meta google-site-verification (Search Console).
+  // Jika diisi, meta <meta name="google-site-verification" ...> dirender
+  // otomatis di <head> setiap halaman. Kosongkan jika belum diverifikasi.
+  "googleVerification": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 }
 ```
 
