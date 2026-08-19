@@ -122,3 +122,11 @@ verifikasi build/lint + link checker + Lighthouse spot-check sebelum lanjut.
   (kompatibel Pages CMS actions)
 - [x] `sync-theme.mjs` SYNC_PATHS + `.github/workflows/pages-cms-media.yml`
 - [ ] Install GitHub App Pages CMS ke seluruh repo (menunggu aksi user)
+
+## Fase 10 — Input Search Console di Pages CMS ✅
+- [x] `.pages.yml` tambah konten `site.config.json` (type: file, format: json)
+      dengan field `googleVerification` (token HTML tag Search Console)
+      + tagline/description/categoryLabel
+- [x] Edit dari app.pagecms.org → Pengaturan Situs → isi token → Simpan
+      (meta `<meta name="google-site-verification">` dirender otomatis)
+- [ ] Install GitHub App Pages CMS ke seluruh repo (menunggu aksi user)
