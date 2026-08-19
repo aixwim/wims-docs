@@ -114,3 +114,11 @@ verifikasi build/lint + link checker + Lighthouse spot-check sebelum lanjut.
 - `scripts/check-links.js` → 0 orphan, 0 tautan mati
 - Lighthouse: a11y/BP/SEO 100, perf ≥ 80 (desktop)
 - Status tabel di README diperbarui
+
+## Fase 9 — Pages CMS Lengkap ✅
+- [x] `.pages.yml` lengkap: `settings.content.merge`, media `rename`+action
+  optimasi, `components` SEO, action Deploy, slug opsional (fallback filename)
+- [x] Workflow `pages-cms-media.yml` + input `payload` di `deploy.yml`
+  (kompatibel Pages CMS actions)
+- [x] `sync-theme.mjs` SYNC_PATHS + `.github/workflows/pages-cms-media.yml`
+- [ ] Install GitHub App Pages CMS ke seluruh repo (menunggu aksi user)
